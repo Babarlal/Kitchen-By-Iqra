@@ -1,0 +1,6 @@
+# Kitchen by Iqra — allow all search engines
+User-agent: *
+Allow: /
+
+# ✏️ Replace with your real domain after deploying
+Sitemap: https://www.kitchenbyiqra.com/sitemap.xml
