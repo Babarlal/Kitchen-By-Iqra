@@ -44,6 +44,11 @@
   function track(event, ecommerce, extra) {
     window.dataLayer.push({ ecommerce: null });           // clear previous (GA4 best practice)
     window.dataLayer.push(Object.assign({ event: event, ecommerce: ecommerce }, extra || {}));
+    // Send straight to GA4 via gtag too, so events are tracked without needing
+    // a Google Tag Manager container. (gtag is defined by the GA4 snippet in <head>.)
+    if (typeof window.gtag === "function") {
+      window.gtag("event", event, Object.assign({}, ecommerce || {}, extra || {}));
+    }
   }
 
   /* ---------- Cart state ---------- */

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- KITCHEN BY IQRA — Blog post. ✏️ Replace GTM-XXXXXXX and the domain before launch. -->
+<!-- KITCHEN BY IQRA — Blog post. ✏️ Replace G-XXXXXXXXXX (GA4 ID) and the domain before launch. -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -27,15 +27,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Karla:wght@400;700;800&family=Gulzar&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css?v=4">
+  <link rel="stylesheet" href="../css/style.css?v=5">
 
-  <!-- Google Tag Manager — ✏️ replace GTM-XXXXXXX -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-  <!-- End Google Tag Manager -->
+  <!-- Google Analytics 4 — ✏️ replace G-XXXXXXXXXX with your Measurement ID (both occurrences below) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  <!-- End Google Analytics 4 -->
 
   <script type="application/ld+json">
   {
@@ -71,10 +73,7 @@
   </script>
 </head>
 <body data-depth="1">
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<!-- Analytics loads via Google Analytics 4 in <head>; no body tag needed. -->
 
 <div class="stripe" aria-hidden="true"></div>
 
@@ -205,7 +204,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 
-<script src="../js/menu-data.js?v=4"></script>
-<script src="../js/main.js?v=4"></script>
+<script src="../js/menu-data.js?v=5"></script>
+<script src="../js/main.js?v=5"></script>
 </body>
 </html>
