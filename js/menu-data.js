@@ -43,6 +43,11 @@ const WM = (path, w = 800) =>
 /* WMO = same CDN, original size (for photos smaller than the thumb width). */
 const WMO = (path) =>
   `https://i0.wp.com/upload.wikimedia.org/wikipedia/commons/${path}`;
+/* SELF = Iqra's OWN photo in /images, delivered resized via the same CDN.
+   The uploaded PNGs are 2–3 MB each; this serves a fast ~800px JPG instead.
+   To use a photo at full quality with no CDN, set img to "images/<file>". */
+const SELF = (file, w = 800) =>
+  `https://i0.wp.com/kitchen-by-iqra.vercel.app/images/${file}?w=${w}`;
 const IMG = (id, w = 800) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=70`;
 
@@ -76,7 +81,7 @@ const MENU = [
   /* ---------- Sabzi & Daal ---------- */
   { id:"bhindi",        cat:"sabzi", name:"Bhindi Masala",   urdu:"بھنڈی",        price:300, unit:"per plate", veg:true,
     desc:"Crisp okra bhuna with onions and tomatoes — no slime, all flavour.",
-    img: WM("3/38/Stir-Fried-Okra-2008.jpg") },
+    img: SELF("bhindi-masala.png") },
   { id:"bhindi-chicken",cat:"sabzi", name:"Bhindi Chicken",  urdu:"بھنڈی چکن",    price:400, unit:"per plate", veg:false,
     desc:"Okra and chicken bhuna together the ghar way.",
     img: WM("3/38/Stir-Fried-Okra-2008.jpg") },
@@ -88,7 +93,7 @@ const MENU = [
     img: WMO("4/49/Vegetarian_Curry.jpeg") },
   { id:"daal-karela",   cat:"sabzi", name:"Daal Karela",     urdu:"دال کریلا",    price:350, unit:"per plate", veg:true,
     desc:"Channa daal and karela — the classic gharelu jora.",
-    img: WM("3/39/Daal_after_Tadka_Pulse_Soup_India.jpg") },
+    img: SELF("daal-karela.png") },
   { id:"karela-chicken",cat:"sabzi", name:"Chicken Karela",  urdu:"چکن کریلا",    price:400, unit:"per plate", veg:false,
     desc:"Karela with tender chicken in a dry-bhuna masala.",
     img: WM("c/c7/IndianChickenCurry.jpg") },
@@ -103,21 +108,21 @@ const MENU = [
     img: WM("6/69/Punjabi_style_Dal_Makhani.jpg") },
   { id:"daal-channa",   cat:"sabzi", name:"Daal Channa",     urdu:"دال چنا",      price:350, unit:"per plate", veg:true,
     desc:"Hearty split-gram daal with a sizzling desi-ghee tarka.",
-    img: WM("8/8e/Chana_masala.jpg") },
+    img: SELF("dal-chana.png") },
   { id:"daal-moong",    cat:"sabzi", name:"Daal Moong",      urdu:"دال مونگ",     price:350, unit:"per plate", veg:true,
     desc:"Light yellow moong — the easiest daal on the stomach, big on tarka.",
-    img: WM("3/39/Daal_after_Tadka_Pulse_Soup_India.jpg") },
+    img: SELF("moong-masoor-dal.png") },
   { id:"daal-masoor",   cat:"sabzi", name:"Daal Masoor",     urdu:"دال مسور",     price:350, unit:"per plate", veg:true,
     desc:"Red lentils cooked soft with garlic tarka and fresh coriander.",
-    img: WMO("f/f8/Dal_Makhani.jpg") },
+    img: SELF("masoor-dal.png") },
   { id:"karhi-pakora",  cat:"sabzi", name:"Karhi Pakora",    urdu:"کڑھی پکوڑا",   price:300, unit:"per plate", veg:true,
     desc:"Tangy besan karhi with soft pakoray and a red-chilli tarka on top.",
-    img: WM("6/67/Kadhi_Pakora.jpg") },
+    img: SELF("karhi-pakora.png") },
 
   /* ---------- Rice & Daily Combos ---------- */
   { id:"biryani",      cat:"chawal", name:"Chicken Biryani", urdu:"چکن بریانی",  price:400, unit:"per plate", veg:false,
     desc:"Layered Lahori biryani with aloo, fried onions and home-mixed masala.",
-    img: WM("b/bd/Sindhi_Biryani.JPG") },
+    img: SELF("chicken-biryani.png") },
   { id:"pulao",        cat:"chawal", name:"Chicken Pulao",   urdu:"چکن پلاؤ",    price:400, unit:"per plate", veg:false,
     desc:"Yakhni pulao — fragrant stock rice with tender chicken.",
     img: WM("4/45/Zafrani_Pulao.jpg") },
@@ -143,7 +148,7 @@ const MENU = [
     img: WM("4/44/Original_Mac_n_Cheese_.jpg") },
   { id:"white-pasta",  cat:"chinese", name:"White Sauce Pasta", urdu:"وائٹ ساس پاستا", price:600, unit:"per plate", veg:false,
     desc:"Creamy white-sauce pasta baked-style with chicken — rich and indulgent.",
-    img: WM("d/dc/The_Only_Original_Alfredo_Sauce_with_Butter_and_Parmesano-Reggiano_Cheese.png") },
+    img: SELF("chicken-alfredo-pasta.png") },
 
   /* ---------- Frozen & Add-ons ---------- */
   { id:"shami",   cat:"extras", name:"Shami Kabab (Frozen)", urdu:"شامی کباب", price:60, unit:"per piece", veg:false,
@@ -152,7 +157,7 @@ const MENU = [
   { id:"roti",    cat:"extras", name:"Roti",        urdu:"روٹی",   price:60, unit:"each", veg:true,
     desc:"Fresh, soft roti made to go with your salan.", img: WM("5/5c/Punjabi_Chapati.jpg") },
   { id:"paratha", cat:"extras", name:"Paratha",     urdu:"پراٹھا", price:60, unit:"each", veg:true,
-    desc:"Crisp-edged desi paratha.", img: WM("1/1e/Triangle_paratha_%28cropped%29.JPG") },
+    desc:"Crisp-edged desi paratha.", img: SELF("paratha.png") },
   { id:"salad",   cat:"extras", name:"Fresh Salad", urdu:"سلاد",   price:60, unit:"per serving", veg:true,
     desc:"Kachumber-style salad: onion, tomato, cucumber, lemon.", img: WM("1/12/Kachumber_Salad.JPG") },
   { id:"raita",   cat:"extras", name:"Raita",       urdu:"رائتہ",  price:60, unit:"per serving", veg:true,
