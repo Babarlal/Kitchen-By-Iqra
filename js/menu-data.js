@@ -24,9 +24,18 @@ const KBI = {
   }
 };
 
-/* Image note: these are free Unsplash placeholders. If a photo ever fails
-   to load, a clean labelled placeholder appears automatically. Replace with
-   real photos of your dishes when you can — it sells far better. */
+/* Image note: these are real, free-to-use photos of each actual dish from
+   Wikimedia Commons (accurate Pakistani/Desi food). If a photo ever fails to
+   load, a clean labelled placeholder appears automatically. When you have your
+   own photos of Iqra's food, just replace the URL on each dish below — your
+   real food sells far better than any stock photo.
+
+   WM("X/XX/File_name.jpg") builds a stable Wikimedia thumbnail URL.
+   IMG(...) is the old Unsplash helper, kept for the few generic items. */
+const WM = (path, w = 800) => {
+  const file = path.split("/").pop();
+  return `https://upload.wikimedia.org/wikipedia/commons/thumb/${path}/${w}px-${file}`;
+};
 const IMG = (id, w = 800) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=70`;
 
@@ -34,83 +43,83 @@ const MENU = [
   /* ---------- Desi Salan & Karahi ---------- */
   { id:"qorma",        cat:"salan", name:"Chicken Qorma",        urdu:"چکن قورمہ",   price:500, unit:"per plate", veg:false,
     desc:"Slow-cooked in browned-onion gravy with home-ground garam masala — Sunday-dawat style.",
-    img: IMG("photo-1585937421612-70a008356fbe") },
+    img: WM("a/a8/Chicken_Korma.JPG") },
   { id:"karahi",       cat:"salan", name:"Chicken Karahi",       urdu:"چکن کڑاہی",   price:500, unit:"per plate", veg:false,
     desc:"Tomato-and-green-chilli karahi finished with fresh ginger, just like a home wok.",
-    img: IMG("photo-1565557623262-b51c2513a641") },
+    img: WM("c/c4/Pakistani_Food_Karahi_Beef.jpg") },
   { id:"white-karahi", cat:"salan", name:"Chicken White Karahi", urdu:"وائٹ کڑاہی",  price:500, unit:"per plate", veg:false,
     desc:"Creamy yogurt-and-black-pepper karahi — mild, rich and very office-friendly.",
-    img: IMG("photo-1631452180519-c014fe946bc7") },
+    img: WM("4/41/Butter_Chicken_%26_Butter_Naan_-_Home_-_Chandigarh_-_India_-_0006.jpg") },
   { id:"white-handi",  cat:"salan", name:"Chicken White Handi",  urdu:"وائٹ ہانڈی",  price:600, unit:"per plate", veg:false,
     desc:"Boneless chicken simmered in a creamy white handi masala.",
-    img: IMG("photo-1567188040759-fb8a883dc6d8") },
+    img: WM("8/87/Aesthetic_Chicken_Curry.jpg") },
   { id:"handi",        cat:"salan", name:"Chicken Handi (Simple)", urdu:"چکن ہانڈی", price:500, unit:"per plate", veg:false,
     desc:"Classic desi handi with tomatoes, yogurt and home spices.",
-    img: IMG("photo-1574653853027-5382a3d23a15") },
+    img: WM("c/c7/IndianChickenCurry.jpg") },
   { id:"kofta",        cat:"salan", name:"Chicken Kofta Curry",  urdu:"چکن کوفتہ",   price:400, unit:"per plate", veg:false,
     desc:"Hand-rolled chicken koftay in a rich, gently spiced curry.",
-    img: IMG("photo-1545247181-516773cae754") },
+    img: WM("8/82/NargisiKofta.jpg") },
   { id:"haleem",       cat:"salan", name:"Chicken Haleem",       urdu:"چکن حلیم",    price:350, unit:"per plate", veg:false,
     desc:"Wheat, lentils and chicken stirred for hours — served with tarka, mint and lemon.",
-    img: IMG("photo-1547592180-85f173990554") },
+    img: WM("0/0f/Pakistani_Haleem_served_with_garnish.jpg") },
   { id:"nihari",       cat:"salan", name:"Chicken Nihari",       urdu:"چکن نہاری",   price:500, unit:"per plate", veg:false,
     desc:"Slow morning-style nihari with home-blended nihari masala and ginger garnish.",
-    img: IMG("photo-1603894584373-5ac82b2ae398") },
+    img: WM("4/4b/Nalli_Nihari_India.jpg") },
 
   /* ---------- Sabzi & Daal ---------- */
   { id:"bhindi",        cat:"sabzi", name:"Bhindi Masala",   urdu:"بھنڈی",        price:300, unit:"per plate", veg:true,
     desc:"Crisp okra bhuna with onions and tomatoes — no slime, all flavour.",
-    img: IMG("photo-1512621776951-a57141f2eefd") },
+    img: WM("3/38/Stir-Fried-Okra-2008.jpg") },
   { id:"bhindi-chicken",cat:"sabzi", name:"Bhindi Chicken",  urdu:"بھنڈی چکن",    price:400, unit:"per plate", veg:false,
     desc:"Okra and chicken bhuna together the ghar way.",
-    img: IMG("photo-1455619452474-d2be8b1e70cd") },
+    img: WM("3/38/Stir-Fried-Okra-2008.jpg") },
   { id:"kaddu-chicken", cat:"sabzi", name:"Kaddu Chicken",   urdu:"کدو چکن",      price:350, unit:"per plate", veg:false,
     desc:"Soft pumpkin and chicken salan — light, seasonal comfort food.",
-    img: IMG("photo-1476718406336-bb5a9690ee2a") },
+    img: WM("a/a1/Chicken_Dry_Curry_-_Howrah_2015-04-26_8515.JPG") },
   { id:"karela",        cat:"sabzi", name:"Karela Masala",   urdu:"کریلا",        price:300, unit:"per plate", veg:true,
     desc:"Bitter gourd done right: salted, squeezed and bhuna with plenty of onion.",
-    img: IMG("photo-1604908176997-125f25cc6f3d") },
+    img: WM("4/49/Vegetarian_Curry.jpeg") },
   { id:"daal-karela",   cat:"sabzi", name:"Daal Karela",     urdu:"دال کریلا",    price:350, unit:"per plate", veg:true,
     desc:"Channa daal and karela — the classic gharelu jora.",
-    img: IMG("photo-1546833999-b9f581a1996d") },
+    img: WM("3/39/Daal_after_Tadka_Pulse_Soup_India.jpg") },
   { id:"karela-chicken",cat:"sabzi", name:"Chicken Karela",  urdu:"چکن کریلا",    price:400, unit:"per plate", veg:false,
     desc:"Karela with tender chicken in a dry-bhuna masala.",
-    img: IMG("photo-1567337710282-00832b415979") },
+    img: WM("c/c7/IndianChickenCurry.jpg") },
   { id:"tinday",        cat:"sabzi", name:"Tinday",          urdu:"ٹنڈے",         price:300, unit:"per plate", veg:true,
     desc:"Apple gourd in a light tomato masala — the taste of a desi Tuesday.",
-    img: IMG("photo-1543339308-43e59d6b73a6") },
+    img: WM("4/49/Vegetarian_Curry.jpeg") },
   { id:"tinday-gosht",  cat:"sabzi", name:"Tinday Gosht",    urdu:"ٹنڈے گوشت",    price:400, unit:"per plate", veg:false,
     desc:"Tinday simmered with meat for a fuller, hearty salan.",
-    img: IMG("photo-1505253716362-afaea1d3d1af") },
+    img: WM("a/a1/Chicken_Dry_Curry_-_Howrah_2015-04-26_8515.JPG") },
   { id:"daal-mash",     cat:"sabzi", name:"Daal Mash",       urdu:"دال ماش",      price:350, unit:"per plate", veg:true,
     desc:"Dry-style white lentils with ginger juliennes and green chilli tarka.",
-    img: IMG("photo-1626500155537-93690c24099a") },
+    img: WM("6/69/Punjabi_style_Dal_Makhani.jpg") },
   { id:"daal-channa",   cat:"sabzi", name:"Daal Channa",     urdu:"دال چنا",      price:350, unit:"per plate", veg:true,
     desc:"Hearty split-gram daal with a sizzling desi-ghee tarka.",
-    img: IMG("photo-1631515243349-e0cb75fb8d3a") },
+    img: WM("8/8e/Chana_masala.jpg") },
   { id:"daal-moong",    cat:"sabzi", name:"Daal Moong",      urdu:"دال مونگ",     price:350, unit:"per plate", veg:true,
     desc:"Light yellow moong — the easiest daal on the stomach, big on tarka.",
-    img: IMG("photo-1547496502-affa22d38842") },
+    img: WM("3/39/Daal_after_Tadka_Pulse_Soup_India.jpg") },
   { id:"daal-masoor",   cat:"sabzi", name:"Daal Masoor",     urdu:"دال مسور",     price:350, unit:"per plate", veg:true,
     desc:"Red lentils cooked soft with garlic tarka and fresh coriander.",
-    img: IMG("photo-1585032226651-759b368d7246") },
+    img: WM("f/f8/Dal_Makhani.jpg") },
   { id:"karhi-pakora",  cat:"sabzi", name:"Karhi Pakora",    urdu:"کڑھی پکوڑا",   price:300, unit:"per plate", veg:true,
     desc:"Tangy besan karhi with soft pakoray and a red-chilli tarka on top.",
-    img: IMG("photo-1606491956689-2ea866880c84") },
+    img: WM("6/67/Kadhi_Pakora.jpg") },
 
   /* ---------- Rice & Daily Combos ---------- */
   { id:"biryani",      cat:"chawal", name:"Chicken Biryani", urdu:"چکن بریانی",  price:400, unit:"per plate", veg:false,
     desc:"Layered Lahori biryani with aloo, fried onions and home-mixed masala.",
-    img: IMG("photo-1589302168068-964664d93dc0") },
+    img: WM("b/bd/Sindhi_Biryani.JPG") },
   { id:"pulao",        cat:"chawal", name:"Chicken Pulao",   urdu:"چکن پلاؤ",    price:400, unit:"per plate", veg:false,
     desc:"Yakhni pulao — fragrant stock rice with tender chicken.",
-    img: IMG("photo-1596797038530-2c107229654b") },
+    img: WM("4/45/Zafrani_Pulao.jpg") },
   { id:"daal-chawal",  cat:"chawal", name:"Daal Chawal",     urdu:"دال چاول",    price:500, unit:"per plate", veg:true,
     desc:"The nation's comfort plate: daal of the day over steamed rice, with achar.",
-    img: IMG("photo-1567620905732-2d1ec7ab7445") },
+    img: WM("5/53/Dal_bhat_Birethani.jpg") },
   { id:"masoor-chawal",cat:"chawal", name:"Masoor Chawal",   urdu:"مسور چاول",   price:550, unit:"per plate", veg:true,
     desc:"Garlicky masoor daal over rice — simple, filling, homemade.",
-    img: IMG("photo-1516684732162-798a0062be99") },
+    img: WM("5/53/Dal_bhat_Birethani.jpg") },
   { id:"plain-rice",   cat:"chawal", name:"Plain / Zeera Rice", urdu:"سادہ چاول", price:0, unit:"on request", veg:true, custom:true,
     desc:"All varieties of rice available on demand — WhatsApp us your requirement.",
     img: IMG("photo-1536304993881-ff6e9eefa2a6") },
@@ -118,31 +127,31 @@ const MENU = [
   /* ---------- Chinese & Pasta ---------- */
   { id:"spaghetti",    cat:"chinese", name:"Chicken Spaghetti", urdu:"چکن سپیگیٹی", price:450, unit:"per plate", veg:false,
     desc:"Desi-Chinese spaghetti tossed with chicken, capsicum and a gentle kick.",
-    img: IMG("photo-1551183053-bf91a1d81141") },
+    img: WM("a/ac/Pasta_Puttanesca.jpg") },
   { id:"macaroni",     cat:"chinese", name:"Chicken Macaroni",  urdu:"چکن میکرونی", price:450, unit:"per plate", veg:false,
     desc:"Saucy macaroni with chicken and vegetables — a lunchbox favourite.",
-    img: IMG("photo-1621996346565-e3dbc646d9a9") },
+    img: WM("4/44/Original_Mac_n_Cheese_.jpg") },
   { id:"macaroni-veg", cat:"chinese", name:"Vegetable Macaroni",urdu:"ویجیٹیبل میکرونی", price:400, unit:"per plate", veg:true,
     desc:"Colourful veggie macaroni in a light, tangy sauce.",
-    img: IMG("photo-1473093295043-cdd812d0e601") },
+    img: WM("4/44/Original_Mac_n_Cheese_.jpg") },
   { id:"white-pasta",  cat:"chinese", name:"White Sauce Pasta", urdu:"وائٹ ساس پاستا", price:600, unit:"per plate", veg:false,
     desc:"Creamy white-sauce pasta baked-style with chicken — rich and indulgent.",
-    img: IMG("photo-1645112411341-6c4fd023714a") },
+    img: WM("d/dc/The_Only_Original_Alfredo_Sauce_with_Butter_and_Parmesano-Reggiano_Cheese.png") },
 
   /* ---------- Frozen & Add-ons ---------- */
   { id:"shami",   cat:"extras", name:"Shami Kabab (Frozen)", urdu:"شامی کباب", price:60, unit:"per piece", veg:false,
     desc:"Home-made shami kababs, frozen in batches — fry fresh whenever you need.",
-    img: IMG("photo-1601050690597-df0568f70950") },
+    img: WM("d/df/4th_October_2012_Shami_Kebab.jpg") },
   { id:"roti",    cat:"extras", name:"Roti",        urdu:"روٹی",   price:60, unit:"each", veg:true,
-    desc:"Fresh, soft roti made to go with your salan.", img: IMG("photo-1565280654386-36c3ea205462") },
+    desc:"Fresh, soft roti made to go with your salan.", img: WM("5/5c/Punjabi_Chapati.jpg") },
   { id:"paratha", cat:"extras", name:"Paratha",     urdu:"پراٹھا", price:60, unit:"each", veg:true,
-    desc:"Crisp-edged desi paratha.", img: IMG("photo-1606471191009-63994c53433b") },
+    desc:"Crisp-edged desi paratha.", img: WM("1/1e/Triangle_paratha_%28cropped%29.JPG") },
   { id:"salad",   cat:"extras", name:"Fresh Salad", urdu:"سلاد",   price:60, unit:"per serving", veg:true,
-    desc:"Kachumber-style salad: onion, tomato, cucumber, lemon.", img: IMG("photo-1546069901-ba9599a7e63c") },
+    desc:"Kachumber-style salad: onion, tomato, cucumber, lemon.", img: WM("1/12/Kachumber_Salad.JPG") },
   { id:"raita",   cat:"extras", name:"Raita",       urdu:"رائتہ",  price:60, unit:"per serving", veg:true,
-    desc:"Cool mint-zeera raita.", img: IMG("photo-1571212515416-fef01fc43637") },
+    desc:"Cool mint-zeera raita.", img: WM("7/78/Cucumber-raita.jpg") },
   { id:"achar",   cat:"extras", name:"Achar (Pickle)", urdu:"اچار", price:60, unit:"per serving", veg:true,
-    desc:"Sharp mixed achar, the proper desi sidekick.", img: IMG("photo-1589135233689-31ad9b4f9a3c") }
+    desc:"Sharp mixed achar, the proper desi sidekick.", img: WM("b/b6/Indian-pickle.jpg") }
 ];
 
 const CATS = [
