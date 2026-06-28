@@ -33,16 +33,16 @@ const KBI = {
    WM("X/XX/File_name.jpg") returns a photo URL.
    IMG(...) is the old Unsplash helper, kept for the few generic items. */
 
-/* Photos are delivered through images.weserv.nl — a free, Cloudflare-backed
-   image CDN. It fetches each real photo from Wikimedia Commons on its own
-   servers and serves it from a fast CDN that loads everywhere, including
-   networks (e.g. in Pakistan) where upload.wikimedia.org is blocked or slow.
-   It also resizes on the fly, so small originals never 404. */
+/* Photos are delivered through Photon (i0.wp.com) — Automattic/WordPress's
+   free global image CDN. It fetches each real photo from Wikimedia Commons on
+   its own servers and serves it from a fast CDN that loads everywhere,
+   including networks (e.g. in Pakistan) where upload.wikimedia.org itself is
+   blocked or slow. It also resizes on the fly, so small originals never 404. */
 const WM = (path, w = 800) =>
-  `https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/${path}&w=${w}&output=jpg&q=75`;
+  `https://i0.wp.com/upload.wikimedia.org/wikipedia/commons/${path}?w=${w}`;
 /* WMO = same CDN, original size (for photos smaller than the thumb width). */
 const WMO = (path) =>
-  `https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/${path}&output=jpg&q=80`;
+  `https://i0.wp.com/upload.wikimedia.org/wikipedia/commons/${path}`;
 const IMG = (id, w = 800) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=70`;
 
