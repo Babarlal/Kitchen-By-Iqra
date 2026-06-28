@@ -36,6 +36,9 @@ const WM = (path, w = 800) => {
   const file = path.split("/").pop();
   return `https://upload.wikimedia.org/wikipedia/commons/thumb/${path}/${w}px-${file}`;
 };
+/* WMO = original (non-thumbnail) URL. Use for photos smaller than the thumb
+   width, where Wikimedia has no 800px thumbnail and the /thumb/ URL would 404. */
+const WMO = (path) => `https://upload.wikimedia.org/wikipedia/commons/${path}`;
 const IMG = (id, w = 800) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=70`;
 
@@ -78,7 +81,7 @@ const MENU = [
     img: WM("a/a1/Chicken_Dry_Curry_-_Howrah_2015-04-26_8515.JPG") },
   { id:"karela",        cat:"sabzi", name:"Karela Masala",   urdu:"کریلا",        price:300, unit:"per plate", veg:true,
     desc:"Bitter gourd done right: salted, squeezed and bhuna with plenty of onion.",
-    img: WM("4/49/Vegetarian_Curry.jpeg") },
+    img: WMO("4/49/Vegetarian_Curry.jpeg") },
   { id:"daal-karela",   cat:"sabzi", name:"Daal Karela",     urdu:"دال کریلا",    price:350, unit:"per plate", veg:true,
     desc:"Channa daal and karela — the classic gharelu jora.",
     img: WM("3/39/Daal_after_Tadka_Pulse_Soup_India.jpg") },
@@ -87,7 +90,7 @@ const MENU = [
     img: WM("c/c7/IndianChickenCurry.jpg") },
   { id:"tinday",        cat:"sabzi", name:"Tinday",          urdu:"ٹنڈے",         price:300, unit:"per plate", veg:true,
     desc:"Apple gourd in a light tomato masala — the taste of a desi Tuesday.",
-    img: WM("4/49/Vegetarian_Curry.jpeg") },
+    img: WMO("4/49/Vegetarian_Curry.jpeg") },
   { id:"tinday-gosht",  cat:"sabzi", name:"Tinday Gosht",    urdu:"ٹنڈے گوشت",    price:400, unit:"per plate", veg:false,
     desc:"Tinday simmered with meat for a fuller, hearty salan.",
     img: WM("a/a1/Chicken_Dry_Curry_-_Howrah_2015-04-26_8515.JPG") },
@@ -102,7 +105,7 @@ const MENU = [
     img: WM("3/39/Daal_after_Tadka_Pulse_Soup_India.jpg") },
   { id:"daal-masoor",   cat:"sabzi", name:"Daal Masoor",     urdu:"دال مسور",     price:350, unit:"per plate", veg:true,
     desc:"Red lentils cooked soft with garlic tarka and fresh coriander.",
-    img: WM("f/f8/Dal_Makhani.jpg") },
+    img: WMO("f/f8/Dal_Makhani.jpg") },
   { id:"karhi-pakora",  cat:"sabzi", name:"Karhi Pakora",    urdu:"کڑھی پکوڑا",   price:300, unit:"per plate", veg:true,
     desc:"Tangy besan karhi with soft pakoray and a red-chilli tarka on top.",
     img: WM("6/67/Kadhi_Pakora.jpg") },
@@ -151,7 +154,7 @@ const MENU = [
   { id:"raita",   cat:"extras", name:"Raita",       urdu:"رائتہ",  price:60, unit:"per serving", veg:true,
     desc:"Cool mint-zeera raita.", img: WM("7/78/Cucumber-raita.jpg") },
   { id:"achar",   cat:"extras", name:"Achar (Pickle)", urdu:"اچار", price:60, unit:"per serving", veg:true,
-    desc:"Sharp mixed achar, the proper desi sidekick.", img: WM("b/b6/Indian-pickle.jpg") }
+    desc:"Sharp mixed achar, the proper desi sidekick.", img: WMO("b/b6/Indian-pickle.jpg") }
 ];
 
 const CATS = [
