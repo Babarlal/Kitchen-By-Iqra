@@ -178,13 +178,13 @@ const CATS = [
    ✏️ EDIT freely: name, what's included, deal price, "was" price.
    Index = JavaScript weekday: 0 Sun, 1 Mon ... 6 Sat. */
 const DEALS = {
-  1: { day:"Monday",    name:"Daal Mash + 2 Roti",                 includes:["daal-mash"],  price:440, was:470 },
-  2: { day:"Tuesday",   name:"Chicken Biryani + Raita",            includes:["biryani"],    price:430, was:460 },
-  3: { day:"Wednesday", name:"Karhi Pakora + 2 Roti",              includes:["karhi-pakora"],price:390, was:420 },
-  4: { day:"Thursday",  name:"Chicken White Handi + 2 Roti",       includes:["white-handi"],price:690, was:720 },
-  5: { day:"Friday",    name:"Chicken Qorma + 2 Roti + Salad",     includes:["qorma"],      price:590, was:620 },
-  6: { day:"Saturday",  name:"Chicken Pulao + 2 pc Shami Kabab",   includes:["pulao"],      price:480, was:520 },
-  0: { day:"Sunday",    name:"Chicken Haleem + 2 Roti",            includes:["haleem"],     price:440, was:470 }
+  1: { day:"Monday",    name:"Chicken Biryani + Raita",            includes:["biryani"],     price:420, was:460 },
+  2: { day:"Tuesday",   name:"Chicken Karahi + 2 Roti",           includes:["karahi"],      price:570, was:620 },
+  3: { day:"Wednesday", name:"Daal Mash + 2 Roti",                includes:["daal-mash"],   price:430, was:470 },
+  4: { day:"Thursday",  name:"Chicken Haleem + 2 Roti",           includes:["haleem"],      price:430, was:470 },
+  5: { day:"Friday",    name:"Chicken Qorma + 2 Roti + Salad",    includes:["qorma"],       price:620, was:680 },
+  6: { day:"Saturday",  name:"Chicken Pulao + 2 pc Shami Kabab",  includes:["pulao"],       price:470, was:520 },
+  0: { day:"Sunday",    name:"White Sauce Pasta",                 includes:["white-pasta"], price:540, was:600 }
 };
 
 /* Office perks shown on the planner page. ✏️ EDIT to match what you actually offer. */
