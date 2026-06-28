@@ -103,7 +103,7 @@ p{margin:.4em 0 1em}
   display:grid;place-items:center;font-family:var(--ff-display);font-size:1.15rem;
   border:2px solid var(--genda);
 }
-.brand-logo{height:50px;width:auto;max-width:190px;object-fit:contain;display:block}
+.brand-logo{height:60px;width:auto;max-width:200px;object-fit:contain;display:block}
 .brand-name{font-family:var(--ff-display);color:var(--gehra);font-size:1.12rem;line-height:1.05}
 .brand-name small{display:block;font-family:var(--ff-body);font-weight:700;font-size:.62rem;
   letter-spacing:.18em;text-transform:uppercase;color:var(--masala)}
