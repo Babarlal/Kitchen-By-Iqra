@@ -47,7 +47,7 @@ const WMO = (path) =>
    The uploaded PNGs are 2–3 MB each; this serves a fast ~800px JPG instead.
    To use a photo at full quality with no CDN, set img to "images/<file>". */
 const SELF = (file, w = 800) =>
-  `https://i0.wp.com/kitchen-by-iqra.vercel.app/images/${file}?w=${w}`;
+  `https://i0.wp.com/kitchen-by-iqra.vercel.app/images/${file}?w=${w}&output=jpg&q=82`;
 const IMG = (id, w = 800) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=70`;
 
