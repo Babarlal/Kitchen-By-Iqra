@@ -30,15 +30,19 @@ const KBI = {
    own photos of Iqra's food, just replace the URL on each dish below — your
    real food sells far better than any stock photo.
 
-   WM("X/XX/File_name.jpg") builds a stable Wikimedia thumbnail URL.
+   WM("X/XX/File_name.jpg") returns a photo URL.
    IMG(...) is the old Unsplash helper, kept for the few generic items. */
-const WM = (path, w = 800) => {
-  const file = path.split("/").pop();
-  return `https://upload.wikimedia.org/wikipedia/commons/thumb/${path}/${w}px-${file}`;
-};
-/* WMO = original (non-thumbnail) URL. Use for photos smaller than the thumb
-   width, where Wikimedia has no 800px thumbnail and the /thumb/ URL would 404. */
-const WMO = (path) => `https://upload.wikimedia.org/wikipedia/commons/${path}`;
+
+/* Photos are delivered through images.weserv.nl — a free, Cloudflare-backed
+   image CDN. It fetches each real photo from Wikimedia Commons on its own
+   servers and serves it from a fast CDN that loads everywhere, including
+   networks (e.g. in Pakistan) where upload.wikimedia.org is blocked or slow.
+   It also resizes on the fly, so small originals never 404. */
+const WM = (path, w = 800) =>
+  `https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/${path}&w=${w}&output=jpg&q=75`;
+/* WMO = same CDN, original size (for photos smaller than the thumb width). */
+const WMO = (path) =>
+  `https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/${path}&output=jpg&q=80`;
 const IMG = (id, w = 800) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=70`;
 
