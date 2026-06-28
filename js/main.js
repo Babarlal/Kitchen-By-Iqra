@@ -182,6 +182,18 @@
   }
   document.addEventListener("click", (e) => {
     const t = e.target;
+
+    /* Count every "order on WhatsApp" click as a conversion in GA4.
+       Orders are finalised on WhatsApp, so a WhatsApp click is the key
+       conversion. Fires generate_lead (a GA4 recommended conversion event);
+       mark it as a Key Event in GA4 to treat WhatsApp as a sale/conversion.
+       (The cart checkout flow additionally fires a full `purchase` event.) */
+    const waLink = t.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"], a[href*="whatsapp.com/send"]');
+    if (waLink) {
+      track("generate_lead", { currency: "PKR", value: cartTotal() },
+            { method: "WhatsApp", link_text: (waLink.textContent || "WhatsApp").trim().slice(0, 60) });
+    }
+
     if (t.closest("[data-open-cart]")) { e.preventDefault(); openDrawer(); }
     if (t.closest("[data-close-drawer]") || t.closest("[data-close-modal]")) closeAll();
     if (t.classList.contains("drawer") || t.classList.contains("modal") || t.classList.contains("mobile-menu")) closeAll();

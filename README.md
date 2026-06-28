@@ -41,9 +41,9 @@ Search each file for the pencil emoji `✏️` — every placeholder is marked. 
    grep -rl "GTM-XXXXXXX" . | xargs sed -i 's/GTM-XXXXXXX/GTM-AB12CD3/g'
    ```
    On Windows, use VS Code → Edit → "Replace in Files".
-2. **Domain** — replace `https://www.kitchenbyiqra.com` everywhere with your real
-   domain (or your free `*.vercel.app` / `*.pages.dev` URL until you buy one).
-   Same find-and-replace trick. This fixes canonicals, sitemap and schema.
+2. **Domain** — the site currently uses `https://kitchen-by-iqra.vercel.app`
+   (canonicals, sitemap, schema). When you buy a custom domain, find-and-replace
+   `kitchen-by-iqra.vercel.app` everywhere with it, then connect it in Vercel.
 3. **Bank details** — in `js/menu-data.js`, fill the real Allied Bank
    `accountTitle`, `accountNumber`, `iban` (shown to customers who choose bank transfer).
 4. **Hours & cutoff** — in `js/menu-data.js` (`hours`, `orderCutoff`) and the footer

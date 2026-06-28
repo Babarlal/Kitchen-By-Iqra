@@ -53,4 +53,4 @@ User-agent: Bytespider
 Allow: /
 
 # ✏️ Replace with your real domain after deploying
-Sitemap: https://www.kitchenbyiqra.com/sitemap.xml
+Sitemap: https://kitchen-by-iqra.vercel.app/sitemap.xml
