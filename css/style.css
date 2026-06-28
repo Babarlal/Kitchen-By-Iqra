@@ -196,6 +196,54 @@ p{margin:.4em 0 1em}
   .thali-rotator img{animation:none;opacity:0}
   .thali-rotator img:nth-child(1){opacity:1}
 }
+
+/* ---------- Announcement / promo bar ---------- */
+.topbar{
+  background:var(--gehra);color:#fff;text-align:center;
+  font-weight:700;font-size:.9rem;line-height:1.45;padding:9px 16px;
+}
+.topbar b{color:var(--genda)}
+
+/* ---------- Full-bleed cover hero (background photo + overlaid text) ---------- */
+.hero-cover{
+  position:relative;isolation:isolate;overflow:hidden;background:var(--gehra);
+  min-height:clamp(440px,70vh,660px);display:flex;align-items:center;
+}
+.hero-cover-media{position:absolute;inset:0;z-index:-2}
+.hero-cover-media img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;animation:thaliFade 12s infinite;
+}
+.hero-cover-media img:nth-child(1){animation-delay:0s}
+.hero-cover-media img:nth-child(2){animation-delay:3s}
+.hero-cover-media img:nth-child(3){animation-delay:6s}
+.hero-cover-media img:nth-child(4){animation-delay:9s}
+.hero-cover::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(11,46,31,.66),rgba(11,46,31,.42) 45%,rgba(11,46,31,.82));
+}
+.hero-cover-inner{color:#fff;text-align:center;max-width:760px;margin-inline:auto;padding:56px 0}
+.hero-cover-inner .eyebrow{color:#ffe7ad}
+.hero-cover-inner .hero-urdu{display:block;color:#fff;margin-bottom:6px}
+.hero-cover-inner h1{
+  color:#fff;font-size:clamp(2rem,6vw,3.3rem);line-height:1.05;margin:.1em 0 .35em;
+  text-shadow:0 2px 22px rgba(0,0,0,.4);
+}
+.hero-cover-inner .lede{
+  color:rgba(255,255,255,.94);max-width:40em;margin:0 auto 4px;
+  text-shadow:0 1px 12px rgba(0,0,0,.35);
+}
+.hero-cover-inner .lede strong{color:#fff}
+.hero-cover-inner .hero-ctas{justify-content:center}
+.hero-cover-inner .hero-points{justify-content:center;color:#fff}
+.hero-cover-inner .hero-points li::before{color:var(--genda)}
+.hero-cover-inner .btn--ghost{color:#fff;border-color:rgba(255,255,255,.75);background:transparent}
+.hero-cover-inner .btn--ghost:hover{background:rgba(255,255,255,.14)}
+@media(prefers-reduced-motion:reduce){
+  .hero-cover-media img{animation:none;opacity:0}
+  .hero-cover-media img:nth-child(1){opacity:1}
+}
+
 .thali-steam{position:absolute;top:-26px;left:50%;width:120px;height:70px;transform:translateX(-50%);pointer-events:none}
 .thali-steam span{
   position:absolute;bottom:0;width:14px;height:54px;border-radius:50%;

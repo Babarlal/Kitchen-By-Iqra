@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Karla:wght@400;700;800&family=Gulzar&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=6">
+  <link rel="stylesheet" href="css/style.css?v=7">
 
   <!-- Google Analytics 4 — Measurement ID G-DPDFYPX0CD -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DPDFYPX0CD"></script>
@@ -86,6 +86,9 @@
 <body>
 <!-- Analytics loads via Google Analytics 4 in <head>; no body tag needed. -->
 
+<!-- Announcement / promo bar (✏️ edit the offer text freely) -->
+<div class="topbar">🍲 Plates from <b>PKR&nbsp;300</b> &nbsp;·&nbsp; ⏰ Order before <b>11&nbsp;AM</b> for same-day office lunch &nbsp;·&nbsp; 🚚 <b>Free delivery</b> on 10+ plates</div>
+
 <div class="stripe" aria-hidden="true"></div>
 
 <header class="site-header">
@@ -132,45 +135,31 @@
 
 <main>
 
-  <!-- ============ HERO ============ -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <span class="eyebrow">Homemade kitchen · Jubilee Town, Lahore</span>
-        <h1>
-          <span class="hero-urdu urdu">گھر کا کھانا، گھر سے گھر تک</span>
-          Fresh Homemade Food delivered to your door.
-        </h1>
-        <p class="lede">Iqra cooks every dish fresh each morning in a real home kitchen. Homemade Desi salan, daal, biryani and desi Chinese food, delivered hot to offices and homes across <strong>Jubilee Town, Bahria Town, Izmir Town, Tricon Village, Sherawala Heights and Iqbal Avenue</strong>.</p>
-        <div class="hero-ctas">
-          <a class="btn btn--primary" href="menu.html">Order today's menu</a>
-          <a class="btn btn--ghost" href="office-deals.html">Plan office lunches</a>
-        </div>
-        <ul class="hero-points">
-          <li>Cooked fresh daily</li>
-          <li>Plates from PKR 300</li>
-          <li>Office plans &amp; daily deals</li>
-        </ul>
+  <!-- ============ HERO (full-bleed cover: background image + overlaid text) ============
+       Want your own cover photo? Drop it at images/hero.jpg and replace the four
+       <img> tags below with a single:  <img src="images/hero.jpg" alt="">  -->
+  <section class="hero-cover">
+    <div class="hero-cover-media" aria-hidden="true">
+      <img src="https://i0.wp.com/upload.wikimedia.org/wikipedia/commons/b/bd/Sindhi_Biryani.JPG?w=1600"
+           alt="" onerror="this.onerror=null;this.src='https://placehold.co/1600x900/176B46/F7EFDE?text=Kitchen+by+Iqra'">
+      <img src="https://i0.wp.com/upload.wikimedia.org/wikipedia/commons/c/c4/Pakistani_Food_Karahi_Beef.jpg?w=1600" alt="" loading="lazy">
+      <img src="https://i0.wp.com/upload.wikimedia.org/wikipedia/commons/0/0f/Pakistani_Haleem_served_with_garnish.jpg?w=1600" alt="" loading="lazy">
+      <img src="https://i0.wp.com/upload.wikimedia.org/wikipedia/commons/a/a8/Chicken_Korma.JPG?w=1600" alt="" loading="lazy">
+    </div>
+    <div class="container hero-cover-inner">
+      <span class="eyebrow">Homemade kitchen · Jubilee Town, Lahore</span>
+      <span class="hero-urdu urdu">گھر کا کھانا، گھر سے گھر تک</span>
+      <h1>Fresh Homemade Food delivered to your door.</h1>
+      <p class="lede">Iqra cooks every dish fresh each morning in a real home kitchen. Homemade Desi salan, daal, biryani and desi Chinese food, delivered hot to offices and homes across <strong>Jubilee Town, Bahria Town, Izmir Town, Tricon Village, Sherawala Heights and Iqbal Avenue</strong>.</p>
+      <div class="hero-ctas">
+        <a class="btn btn--primary" href="menu.html">Order today's menu</a>
+        <a class="btn btn--ghost" href="office-deals.html">Plan office lunches</a>
       </div>
-
-      <!-- Signature: the thali on a dastarkhwan mat, with rising steam.
-           The plate cross-fades through several real dishes every ~3 seconds. -->
-      <div class="thali" aria-hidden="true">
-        <div class="thali-mat"></div>
-        <div class="thali-plate thali-rotator">
-          <img src="https://i0.wp.com/upload.wikimedia.org/wikipedia/commons/b/bd/Sindhi_Biryani.JPG?w=900"
-               alt="" onerror="this.onerror=null;this.src='https://placehold.co/900x900/F7EFDE/8C2F1B?text=Today%27s+Khana'">
-          <img src="https://i0.wp.com/upload.wikimedia.org/wikipedia/commons/c/c4/Pakistani_Food_Karahi_Beef.jpg?w=900"
-               alt="" loading="lazy">
-          <img src="https://i0.wp.com/upload.wikimedia.org/wikipedia/commons/0/0f/Pakistani_Haleem_served_with_garnish.jpg?w=900"
-               alt="" loading="lazy">
-          <img src="https://i0.wp.com/upload.wikimedia.org/wikipedia/commons/a/a8/Chicken_Korma.JPG?w=900"
-               alt="" loading="lazy">
-        </div>
-        <div class="thali-steam"><span></span><span></span><span></span></div>
-        <span class="thali-chip thali-chip--a">Fresh from the handi 🍲</span>
-        <span class="thali-chip thali-chip--b">Same-day lunch by 1–2 PM</span>
-      </div>
+      <ul class="hero-points">
+        <li>Cooked fresh daily</li>
+        <li>Plates from PKR 300</li>
+        <li>Office plans &amp; daily deals</li>
+      </ul>
     </div>
   </section>
 
@@ -378,7 +367,7 @@
   </div>
 </footer>
 
-<script src="js/menu-data.js?v=6"></script>
-<script src="js/main.js?v=6"></script>
+<script src="js/menu-data.js?v=7"></script>
+<script src="js/main.js?v=7"></script>
 </body>
 </html>
